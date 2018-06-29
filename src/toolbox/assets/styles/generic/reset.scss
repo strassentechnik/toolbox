@@ -1,0 +1,234 @@
+// Base
+// =============================================================================
+// 1. Add border box sizing in all browsers (opinionated).
+//    css-tricks.com/inheriting-box-sizing-probably-slightly-better-best-practice
+// 2. Prevent font size adjustments after orientation changes in IE and iOS.
+// 3. Ensure the page always fills at least the entire height of the viewport.
+*,
+:before,
+:after {
+  box-sizing: inherit; // [1]
+}
+
+html {
+  box-sizing: border-box; // [1]
+  overflow-y: scroll;
+  min-height: 100%; // [3]
+  -ms-text-size-adjust: 100%; // [2]
+  -webkit-text-size-adjust: 100%; // [2]
+}
+
+// 1. Enable Open Type features in all browsers.
+// 2. Use softer font antialiasing (opinionated).
+button,
+html,
+input,
+select,
+textarea {
+  -moz-osx-font-smoothing: grayscale; // [2]
+  -webkit-font-smoothing: antialiased; // [2]
+  text-rendering: optimizeLegibility; // [1]
+}
+
+// Reset styling for common elements.
+abbr,
+address,
+blockquote,
+body,
+button,
+caption,
+fieldset,
+figcaption,
+figure,
+form,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+input,
+label,
+legend,
+li,
+nav,
+ol,
+p,
+pre,
+select,
+table,
+tbody,
+td,
+textarea,
+tfoot,
+th,
+thead,
+tr,
+ul {
+  margin: 0;
+  padding: 0;
+  font: inherit;
+  text-align: inherit;
+}
+
+table {
+  border-spacing: 0;
+  border-collapse: collapse;
+}
+
+ol,
+ul,
+nav {
+  list-style: none;
+}
+
+// Add the correct display in IE.
+article,
+aside,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+main,
+nav,
+section {
+  display: block;
+}
+
+[hidden] {
+  display: none;
+}
+
+// Text
+// =============================================================================
+// 1. Add text decoration inheritance in all browsers.
+// 2. Add vertical alignment inheritence in all browsers.
+:before,
+:after {
+  text-decoration: inherit; // [1]
+  vertical-align: inherit; // [2]
+}
+
+// Maintain some text styling (opinionated).
+cite,
+dfn,
+em,
+i {
+  font-style: italic;
+}
+
+b,
+strong {
+  font-weight: 500; // [←]
+}
+
+// Use consistent quotation marks (opinionated).
+q:before {
+  content: '“';
+}
+
+q:after {
+  content: '”';
+}
+
+// 1. Correct the inheritance and scaling of font size in all browsers.
+// 2. Correct the odd `em` font sizing in all browsers.
+pre,
+code {
+  font-family: monospace, monospace; // [1]
+  font-size: 1em; // [2]
+}
+
+hr {
+  margin: 0;
+  border: none;
+}
+
+// Links, buttons and forms
+// =============================================================================
+// Remove the default link and form styling in all browsers (opinionated).
+//
+// 1. Remove the default outline for active elements.
+a,
+button,
+input,
+select,
+textarea {
+  border: none;
+  background: none;
+  color: inherit;
+  appearance: none;
+  border-radius: 0;
+  text-decoration: inherit;
+}
+
+input[type='checkbox'] {
+  appearance: checkbox;
+}
+
+a,
+button {
+  &:active {
+    outline: 0; // [1]
+  }
+}
+
+// Remove the tap delay on clickable elements.
+a,
+button,
+input,
+label,
+select,
+textarea {
+  touch-action: manipulation;
+}
+
+// Remove the inner border and padding in Firefox.
+button:-moz-focus-inner,
+[type='button']:-moz-focus-inner,
+[type='reset']:-moz-focus-inner,
+[type='submit']:-moz-focus-inner {
+  padding: 0;
+  border: 0;
+}
+
+// 1. Remove the default vertical scrollbar in IE.
+// 2. Change the resize direction on textareas in all browsers (opinionated).
+textarea {
+  overflow: auto; // [1]
+  resize: vertical; // [2]
+}
+
+// Show the overflow in IE.
+button,
+input {
+  overflow: visible;
+}
+
+// Media
+// =============================================================================
+// 1. Treat media elements as block elements in all browers (opinionated).
+// 2. Remove excess border on media elements.
+// 3. Make media elements responsive.
+audio,
+canvas,
+iframe,
+img,
+svg,
+video {
+  display: block; // [1]
+  width: 100%; // [3]
+  height: auto; // [3]
+  border: none; // [2]
+}
+
+// 1. Change the fill color to match the text color in all browsers (opinionated).
+// 2. Hide the overflow in IE.
+svg {
+  fill: currentcolor; // [1]
+}
+
+svg:not(:root) {
+  overflow: hidden; // [2]
+}

@@ -1,0 +1,17 @@
+.u-text-bold {
+  font-weight: bold;
+}
+
+.u-text-center {
+  text-align: center;
+}
+
+.u-text-right {
+  text-align: right;
+}
+
+@each $name, $sizes in $global-font-sizes {
+  .u-text-#{$name} {
+    @include text($name);
+  }
+}

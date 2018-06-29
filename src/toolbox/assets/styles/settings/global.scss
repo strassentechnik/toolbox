@@ -1,0 +1,50 @@
+///* ========================================================================
+//   #GLOBAL
+//   ======================================================================== */
+
+// The global settings file contains any project-wide variables; things that
+// need to be made available to the entire codebase.
+
+// Standardise some UI treatments.
+
+$global-radius: 3px !default;
+$global-transition: all 300ms ease-in-out !default;
+
+$global-font-size: $inuit-global-font-size;
+$global-line-height: $inuit-global-line-height;
+
+$global-spacing-unit: $inuit-global-spacing-unit;
+$global-spacing-unit-tiny: $inuit-global-spacing-unit-tiny;
+$global-spacing-unit-small: $inuit-global-spacing-unit-small;
+$global-spacing-unit-large: $inuit-global-spacing-unit-large;
+$global-spacing-unit-huge: $inuit-global-spacing-unit-huge;
+// $global-spacing-unit-huger: $inuit-global-spacing-unit-huger;
+
+$global-font-color: $amtec-gray-dark;
+
+$global-font-sizes: (
+  42: (42px, 52px),
+  36: (36px, 45px),
+  25: (25px, 34px),
+  20: (20px, 26px),
+  16: (16px, 20px),
+  14: ($global-font-size, $global-line-height),
+  12: (12px, 16px)
+);
+
+$inuit-fractions: 5 12;
+$inuit-offsets: true;
+
+$inuit-spacing-sizes: (
+  null: $inuit-global-spacing-unit,
+  '-tiny': $inuit-global-spacing-unit-tiny,
+  '-small': $inuit-global-spacing-unit-small,
+  '-large': $inuit-global-spacing-unit-large,
+  '-huge': $inuit-global-spacing-unit-huge,
+  // "-huger": $inuit-global-spacing-unit-huger,// "-mega": $inuit-global-spacing-unit-mega,"-none": 0
+) !default;
+
+// $inuit-crops: (
+//   (1: 1),
+//   (16: 9)
+// );
