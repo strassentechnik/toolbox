@@ -235,7 +235,7 @@ const ConfiguratorForm = ({ onSubmit }) => (
             disabled={submitting || pristine || invalid}
             className="c-btn c-btn--primary"
           >
-            Submit
+            Angebot einholen
           </button>
         </div>
       </form>

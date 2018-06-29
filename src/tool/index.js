@@ -5,11 +5,11 @@ function getCurrentScript() {
 
 ;(function createIFrame() {
   const currentScript = document.currentScript || getCurrentScript()
-
   const mode = currentScript.getAttribute('mode') || 'production'
+  const debug = currentScript.getAttribute('debug') || false
 
   const iframe = document.createElement('iframe')
-  console.log(mode)
+
   const iframeSrc =
     mode === 'production' || mode === 'staging'
       ? 'https://strassentechnik.github.io/toolbox/toolbox.html'
@@ -19,6 +19,13 @@ function getCurrentScript() {
   iframe.setAttribute('allowTransparency', true)
   iframe.frameBorder = '0'
   iframe.src = `${iframeSrc}?theme=amtec&mode=${mode}`
+
+  if (debug) {
+    console.log('[nadler-tools]', mode, iframeSrc)
+    iframe.src = `${iframeSrc}?theme=amtec&mode=${mode}&debug=true`
+  } else {
+    iframe.src = `${iframeSrc}?theme=amtec&mode=${mode}`
+  }
 
   window.addEventListener(
     'message',
@@ -31,5 +38,5 @@ function getCurrentScript() {
     false
   )
 
-  document.body.appendChild(iframe)
+  currentScript.parentNode.insertBefore(iframe, currentScript.nextSibling)
 })()
