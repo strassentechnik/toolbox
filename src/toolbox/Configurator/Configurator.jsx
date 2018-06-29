@@ -6,7 +6,7 @@ import ConfiguratorForm from './components/ConfiguratorForm'
 const targetUrls = {
   development: 'http://localhost:3000/messages',
   staging: 'https://nadler-staging.herokuapp.com/messages',
-  production: 'http://strassentechnik.de/messages',
+  production: 'https://www.strassentechnik.de/messages',
 }
 
 export default class Configurator extends React.Component {
