@@ -51,6 +51,7 @@ const ConfiguratorForm = ({ onSubmit }) => (
       pristine,
       invalid,
       values,
+      errors,
     }) => (
       <form onSubmit={handleSubmit}>
         <Field name="type" component="input" type="hidden" />
@@ -175,6 +176,44 @@ const ConfiguratorForm = ({ onSubmit }) => (
                 className="c-field-text"
               />
             </div>
+
+            <div className="o-grid__cell u-margin-bottom-small">
+              <label>
+                <Field
+                  name="terms"
+                  type="checkbox"
+                  component="input"
+                  className="c-field-checkbox"
+                />
+                * Ich habe die{' '}
+                <a
+                  className="c-action"
+                  href="https://www.strassentechnik.de/privacy"
+                  target="_blank"
+                >
+                  Hinweise zum Schutz meiner persönlichen Daten
+                </a>{' '}
+                gelesen und akzeptiere diese.
+              </label>
+            </div>
+
+            {values.data.contact === 'callback' && (
+              <div className="o-grid__cell u-margin-bottom-small">
+                <label htmlFor="phone_consent">
+                  <Field
+                    name="phone_consent"
+                    type="checkbox"
+                    component="input"
+                    className="c-field-checkbox"
+                  />
+                  Ich erkläre mich damit einverstanden, dass meine Telefonnummer
+                  von der Firma Nadler zur Kontaktaufnahme verwendet werden
+                  darf. Diese Einwilligung zur Nutzung meiner Telefonnummer kann
+                  ich jederzeit für die Zukunft widerrufen, indem ich eine
+                  E-Mail an info@strassentechnik.de sende.
+                </label>
+              </div>
+            )}
 
             {submitSucceeded && (
               <div className="o-grid__cell u-margin-bottom-small">

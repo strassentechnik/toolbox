@@ -40,8 +40,10 @@
 @import 'objects/grid';
 
 // COMPONENTS
+@import 'components/actions';
 @import 'components/alerts';
 @import 'components/buttons';
+@import 'components/field-checkbox';
 @import 'components/field-error';
 @import 'components/field-radio';
 @import 'components/field-range';

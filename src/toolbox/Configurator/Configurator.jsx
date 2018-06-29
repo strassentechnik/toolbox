@@ -4,9 +4,9 @@ import axios from 'axios'
 import ConfiguratorForm from './components/ConfiguratorForm'
 
 const targetUrls = {
-  development: 'http://localhost:3000/messages',
-  staging: 'https://nadler-staging.herokuapp.com/messages',
-  production: 'https://www.strassentechnik.de/messages',
+  development: 'http://localhost:3000/messages.json',
+  staging: 'https://nadler-staging.herokuapp.com/messages.json',
+  production: 'https://www.strassentechnik.de/messages.json',
 }
 
 export default class Configurator extends React.Component {
