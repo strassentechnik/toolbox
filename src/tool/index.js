@@ -9,8 +9,9 @@ function getCurrentScript() {
   const mode = currentScript.getAttribute('mode') || 'production'
 
   const iframe = document.createElement('iframe')
+  console.log(mode)
   const iframeSrc =
-    mode === 'production'
+    mode === 'production' || mode === 'staging'
       ? 'https://strassentechnik.github.io/toolbox/toolbox.html'
       : 'http://localhost:8080/toolbox/toolbox.html'
 
