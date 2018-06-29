@@ -4,8 +4,18 @@
   "main": "index.js",
   "license": "MIT",
   "scripts": {
-    "start": "webpack-dev-server --config ./dev.config.js --mode development --env.NODE_ENV=development",
-    "build": "webpack --mode production --env.NODE_ENV=production"
+    "start":
+      "webpack-dev-server --config ./dev.config.js --mode development --env.NODE_ENV=development",
+    "build": "webpack --mode production --env.NODE_ENV=production",
+    "deploy": "gh-pages-deploy -- 'Release'",
+    "clean-source":
+      "npx rimraf .circleci .babelrc .editorconfig .nvmrc .stylelintrc .eslintrc dev.config.js postcss.config.js README.md src webpack.config.js package.json yarn.lock"
+  },
+  "gh-pages-deploy": {
+    "staticpath": "dist",
+    "commit": "Release",
+    "post": ["clean-source"],
+    "noprompt": false
   },
   "babel": {
     "presets": ["env", "react", "stage-2"],
@@ -32,12 +42,14 @@
     "eslint-plugin-prettier": "^2.6.0",
     "eslint-plugin-react": "^7.7.0",
     "file-loader": "^1.1.11",
+    "gh-pages-deploy": "0.4.2",
     "html-webpack-plugin": "^3.2.0",
     "mini-css-extract-plugin": "^0.4.0",
     "node-sass": "^4.8.3",
     "postcss-loader": "^2.1.4",
     "prettier": "^1.12.1",
     "react-hot-loader": "^4.0.1",
+    "rimraf": "^2.6.2",
     "sass-loader": "^7.0.1",
     "stylelint": "^9.2.0",
     "stylelint-order": "^0.8.1",
