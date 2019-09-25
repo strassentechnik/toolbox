@@ -26,6 +26,10 @@ const validate = values => {
     errors.phone = 'Bitte eine Telefonnummer angeben'
   }
 
+  if (!values.terms) {
+    errors.terms = 'Bitte stimmen Sie der Datenschutzerklärung zu'
+  }
+
   return errors
 }
 
@@ -190,6 +194,7 @@ const ConfiguratorForm = ({ onSubmit }) => (
                   className="c-action"
                   href="https://www.strassentechnik.de/privacy"
                   target="_blank"
+                  rel="noopener noreferrer"
                 >
                   Hinweise zum Schutz meiner persönlichen Daten
                 </a>{' '}
