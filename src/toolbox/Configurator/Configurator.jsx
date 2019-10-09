@@ -19,9 +19,18 @@ export default class Configurator extends React.Component {
   handleSubmit = (values, form, complete) =>
     axios
       .post(this.getTargetUrl(), { message: values })
-      .then(() => {
+      .then(resp => {
         form.reset()
         complete()
+        if (resp.data && resp.data.target) {
+          setTimeout(() => {
+            // Send message to outer window so that we can track it accordingly
+            window.parent.postMessage(
+              { event_id: 'configComplete', target: resp.data.target },
+              '*'
+            )
+          }, 3500)
+        }
       })
       .catch(error => {
         complete(error)
