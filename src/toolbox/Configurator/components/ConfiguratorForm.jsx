@@ -1,47 +1,46 @@
-import React from 'react'
-import PropTypes from 'prop-types'
-import { Form, Field } from 'react-final-form'
-import TextField from './TextField'
-import VehicleTypeField from './VehicleTypeField'
-import PurposeField from './PurposeField'
-import SettingField from './SettingField'
-import PayloadSliderField from './PayloadSliderField'
-import LayoutField from './LayoutField'
-import checkImage from 'assets/images/check.svg'
+import React from 'react';
+import PropTypes from 'prop-types';
+import { Form, Field } from 'react-final-form';
+import TextField from './TextField';
+import VehicleTypeField from './VehicleTypeField';
+import PurposeField from './PurposeField';
+import SettingField from './SettingField';
+import PayloadSliderField from './PayloadSliderField';
+import LayoutField from './LayoutField';
+import checkImage from 'assets/images/check.svg';
 
-const required = value => (value ? undefined : 'Erforderlich')
+const required = value => (value ? undefined : 'Erforderlich');
 
 const validate = values => {
-  const errors = {}
+  const errors = {};
 
   if (!values.name) {
-    errors.name = 'Geben Sie bitte Ihren Namen an'
+    errors.name = 'Geben Sie bitte Ihren Namen an';
   }
 
   if (!values.email && values.contact === 'email') {
-    errors.email = 'Bitte eine E-Mail Adresse angeben'
+    errors.email = 'Bitte eine E-Mail Adresse angeben';
   }
 
   if (!values.phone && values.contact === 'callback') {
-    errors.phone = 'Bitte eine Telefonnummer angeben'
+    errors.phone = 'Bitte eine Telefonnummer angeben';
   }
 
   if (!values.terms) {
-    errors.terms = 'Bitte stimmen Sie der Datenschutzerklärung zu'
+    errors.terms = 'Bitte stimmen Sie der Datenschutzerklärung zu';
   }
 
-  return errors
-}
+  return errors;
+};
 
 const initialValues = {
   type: 'thermo_offer',
   subject: '[AMTEC] Angebot erstellen',
-  product_id: '6',
   data: {
     payload: 15,
     contact: 'email',
   },
-}
+};
 
 const ConfiguratorForm = ({ onSubmit }) => (
   <Form
@@ -59,7 +58,6 @@ const ConfiguratorForm = ({ onSubmit }) => (
     }) => (
       <form onSubmit={handleSubmit}>
         <Field name="type" component="input" type="hidden" />
-        <Field name="product_id" component="input" type="hidden" />
         <Field name="subject" component="input" type="hidden" />
         <div className="u-margin-bottom-huge">
           <h2 className="c-h3 u-text-center u-margin-bottom-large">
@@ -246,10 +244,10 @@ const ConfiguratorForm = ({ onSubmit }) => (
       </form>
     )}
   />
-)
+);
 
 ConfiguratorForm.propTypes = {
   onSubmit: PropTypes.func.isRequired,
-}
+};
 
-export default ConfiguratorForm
+export default ConfiguratorForm;
